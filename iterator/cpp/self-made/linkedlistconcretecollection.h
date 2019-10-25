@@ -18,6 +18,7 @@ class LinkedListConcreteCollection : public Collection<int>
   private:
     struct Node* head_;
   public:
+    LinkedListConcreteCollection();
     Iterator<int>* createIterator();
 
     int getItem(int index) const;

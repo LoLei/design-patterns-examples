@@ -4,6 +4,13 @@
 /*
  * Concrete collection
  */
+LinkedListConcreteCollection::LinkedListConcreteCollection()
+{
+  head_ = new struct Node();
+  head_->data = 0;
+  head_->next = nullptr;
+}
+
 Iterator<int>* LinkedListConcreteCollection::createIterator()
 {
   return new LinkedListConcreteIterator(this);
@@ -23,7 +30,7 @@ int LinkedListConcreteCollection::getSize() const
 
 void LinkedListConcreteCollection::insert(int data)
 {
-   struct Node* new_node = new struct Node;
+   struct Node* new_node = new struct Node();
    new_node->data = data; 
    new_node->next = head_; 
    head_ = new_node; 

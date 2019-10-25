@@ -5,8 +5,8 @@
  */
 LinkedListConcreteIterator::LinkedListConcreteIterator(const LinkedListConcreteCollection* c)
 {
-  reset();
   collection_ = c;
+  reset();
 }
 
 void LinkedListConcreteIterator::next()
