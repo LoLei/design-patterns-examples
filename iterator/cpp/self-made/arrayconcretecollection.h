@@ -13,8 +13,6 @@ class ArrayConcreteCollection : public Collection<int>
     std::array<int, 5> collection_;
   public:
     Iterator<int>* createIterator();
-    //Enumerable createIterator()
-    //ArrayConcreteIterator* createIterator();
 
     int getItem(int index) const;
     int getSize() const;

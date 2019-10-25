@@ -5,11 +5,8 @@
  * Concrete collection
  */
 Iterator<int>* ArrayConcreteCollection::createIterator()
-//Enumerable createIterator()
-//ArrayConcreteIterator* ArrayConcreteCollection::createIterator()
 {
   return new ArrayConcreteIterator(this);
-  //return Enumerable();
 }
 
 int ArrayConcreteCollection::getItem(int index) const

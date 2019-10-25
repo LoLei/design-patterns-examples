@@ -1,3 +1,6 @@
+linkedlistconcretecollection.o: linkedlistconcretecollection.cpp \
+ linkedlistconcretecollection.h collection.h iterator.h \
+ linkedlistconcreteiterator.h
 arrayconcretecollection.o: arrayconcretecollection.cpp \
  arrayconcretecollection.h collection.h iterator.h \
  arrayconcreteiterator.h
@@ -5,4 +8,7 @@ iterator_pattern.o: iterator_pattern.cpp arrayconcretecollection.h \
  collection.h iterator.h arrayconcreteiterator.h
 arrayconcreteiterator.o: arrayconcreteiterator.cpp \
  arrayconcreteiterator.h iterator.h arrayconcretecollection.h \
+ collection.h
+linkedlistconcreteiterator.o: linkedlistconcreteiterator.cpp \
+ linkedlistconcreteiterator.h iterator.h linkedlistconcretecollection.h \
  collection.h
