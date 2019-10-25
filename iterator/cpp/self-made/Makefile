@@ -4,7 +4,7 @@ CXX := g++
 CXXFLAGS := -std=c++11 -Wall
 
 srcfiles := $(shell find . -name "*.cpp")
-objects  := $(patsubst %.C, %.o, $(srcfiles))
+objects  := $(patsubst %.cpp, %.o, $(srcfiles))
 
 all: $(appname)
 
