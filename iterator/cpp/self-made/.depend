@@ -1,0 +1,8 @@
+arrayconcretecollection.o: arrayconcretecollection.cpp \
+ arrayconcretecollection.h collection.h iterator.h \
+ arrayconcreteiterator.h
+iterator_pattern.o: iterator_pattern.cpp arrayconcretecollection.h \
+ collection.h iterator.h arrayconcreteiterator.h
+arrayconcreteiterator.o: arrayconcreteiterator.cpp \
+ arrayconcreteiterator.h iterator.h arrayconcretecollection.h \
+ collection.h
