@@ -9,7 +9,7 @@ objects  := $(patsubst %.cpp, %.o, $(srcfiles))
 all: $(appname)
 
 $(appname): $(objects)
-	$(CXX) $(CXXFLAGS) $(LDFLAGS) -o $(appname) $(objects) $(LDLIBS)
+	$(CXX) $(CXXFLAGS) $(LDFLAGS) -o $(appname).out $(objects) $(LDLIBS)
 
 depend: .depend
 

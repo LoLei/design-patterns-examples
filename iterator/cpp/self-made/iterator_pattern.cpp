@@ -12,8 +12,8 @@ int main()
   Iterator<int>* my_custom_array_iterator = my_custom_array.createIterator();
   while(!my_custom_array_iterator->isDone())
   {
-    my_custom_array_iterator->next();
     std::cout << my_custom_array_iterator->currentItem() << std::endl;
+    my_custom_array_iterator->next();
   }
 
   // TODO: Create different container
