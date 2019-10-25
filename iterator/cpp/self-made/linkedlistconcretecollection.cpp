@@ -18,13 +18,13 @@ Iterator<int>* LinkedListConcreteCollection::createIterator()
 
 int LinkedListConcreteCollection::getItem(int index) const
 {
-  //return collection_.at(index);
+  // TODO: Either implement or remove
   return 0;
 }
 
 int LinkedListConcreteCollection::getSize() const
 {
-  //return collection_.size();
+  // TODO: Either implement or remove
   return 0;
 }
 

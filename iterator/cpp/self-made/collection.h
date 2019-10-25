@@ -11,7 +11,6 @@ class Collection
 {
   public:
     virtual Iterator<T>* createIterator() = 0;
-    //virtual Enumerable createIterator() = 0;
 };
 
 #endif
