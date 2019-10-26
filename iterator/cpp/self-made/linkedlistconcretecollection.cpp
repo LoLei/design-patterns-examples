@@ -1,3 +1,4 @@
+#include <iostream>
 #include "linkedlistconcretecollection.h"
 #include "linkedlistconcreteiterator.h"
 
@@ -19,12 +20,16 @@ Iterator<int>* LinkedListConcreteCollection::createIterator()
 int LinkedListConcreteCollection::getItem(int index) const
 {
   // TODO: Either implement or remove
+  // Meh
+  std::cout << "LinkedListConcreteCollection::getItem not implemented." << std::endl;
   return 0;
 }
 
 int LinkedListConcreteCollection::getSize() const
 {
   // TODO: Either implement or remove
+  // Meh
+  std::cout << "LinkedListConcreteCollection::getSize not implemented." << std::endl;
   return 0;
 }
 
