@@ -14,7 +14,7 @@ int main()
   std::array<int, 5>::iterator stl_array_it;
 
   // Use standard iterator interface mechanisms independent of underlying container
-  for (stl_array_it = stl_array.begin();      // like `reset()`
+  for (stl_array_it = stl_array.begin();      // like `first()`/`reset()`
       stl_array_it != stl_array.end();        // like `isDone()`
       ++stl_array_it)                         // like `next()`
   {
