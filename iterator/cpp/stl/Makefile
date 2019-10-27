@@ -1,7 +1,7 @@
 appname := iterator_pattern
 
 CXX := g++
-CXXFLAGS := -std=c++11 -Wall -g
+CXXFLAGS := -std=c++11 -Wall
 
 srcfiles := $(shell find . -name "*.cpp")
 objects  := $(patsubst %.cpp, %.o, $(srcfiles))
