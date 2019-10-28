@@ -1,15 +1,23 @@
+"""
+In Python there are two interfaces already built-in, the Iterable and the
+Iterator. For our concrete iterators and collection, we need to implement
+`__next__` and `__iter__` (`CreateIterator`).
+"""
 from collections.abc import Iterable, Iterator
 
 
 class ConcreteIterator(Iterator):
+    """
+    Sample concrete iterator for the concrete collection defined below
+    """
     def __init__(self, collection):
-        self._collection = collection
-        self._position = 0
+        self.collection_ = collection
+        self.index_ = 0
 
     def __next__(self):
         try:
-            next_element = self._collection[self._position]
-            self._position += 1
+            next_element = self.collection_[self.index_]
+            self.index_ += 1
         except IndexError:
             raise StopIteration()
 
@@ -17,14 +25,17 @@ class ConcreteIterator(Iterator):
 
 
 class ConcreteCollection(Iterable):
+    """
+    Sample concrete collection which uses the iterator defined above
+    """
     def __init__(self, collection):
-        self._collection = collection
+        self.collection_ = collection
 
     def __iter__(self):
-        return ConcreteIterator(self._collection)
+        return ConcreteIterator(self.collection_)
 
-    def add_item(self, item):
-        self._collection.append(item)
+    def add_item(self, item_to_add):
+        self.collection_.append(item_to_add)
 
 
 if __name__ == "__main__":
