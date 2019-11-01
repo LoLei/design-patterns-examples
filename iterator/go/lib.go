@@ -21,7 +21,7 @@ type Aggregate interface {
 
 // Concrete aggregate/container (Array-like)
 type ArrayConcreteContainer struct {
-  array []interface{}
+  array_ []interface{}
 }
 
 // In Go one just needs to implement all methods of the interface in the
@@ -35,25 +35,25 @@ func (c *ArrayConcreteContainer) CreateIterator() Iterator {
 
 // Concrete iterator (For concrete array-like container)
 type ArrayConcreteIterator struct {
-  container ArrayConcreteContainer
-  current_index int
+  container_ ArrayConcreteContainer
+  current_index_ int
 }
 
 // Again implement all methods of the interface
 func (i *ArrayConcreteIterator) First() {
-  i.current_index = 0
+  i.current_index_ = 0
 }
 
 func (i *ArrayConcreteIterator) CurrentItem() interface{} {
-  return i.container.array[i.current_index]
+  return i.container_.array_[i.current_index_]
 }
 
 func (i *ArrayConcreteIterator) IsDone() bool {
-  return i.current_index == len(i.container.array)
+  return i.current_index_ == len(i.container_.array_)
 }
 
 func (i *ArrayConcreteIterator) Next() {
   if !i.IsDone() {
-    i.current_index++
+    i.current_index_++
   }
 }
