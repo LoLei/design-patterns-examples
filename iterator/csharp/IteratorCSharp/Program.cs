@@ -1,10 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Collections;
 
-namespace IteratorCSharp
+namespace CSharpIteratorDotNetCore
 {
     class Program
     {
@@ -17,8 +14,7 @@ namespace IteratorCSharp
             a.AddItem(4);
             a.AddItem(5);
 
-
-            foreach(var element in a)
+            foreach (var element in a)
             {
                 Console.WriteLine(element);
             }

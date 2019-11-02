@@ -1,13 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 
-namespace IteratorCSharp
+namespace CSharpIteratorDotNetCore
 {
     //Concrete Iterator implements traversal algorithm. Store traversal position
-    class ConcreteIterator :Iterator
+    class ConcreteIterator : Iterator
     {
         private ConcreteCollection _collection;
         private int _current = -1;
@@ -19,7 +17,7 @@ namespace IteratorCSharp
 
         public override object Current()
         {
-            return this._collection.getItems()[_current];
+                return this._collection.getItems()[_current];
         }
 
         public override int Key()
