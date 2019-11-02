@@ -10,18 +10,17 @@ namespace IteratorCSharp
     {
         static void Main(string[] args)
         {
-            ConcreteArrayCollection a = new ConcreteArrayCollection();
-            a[0] = 1;
-            a[1] = 2;
-            a[2] = 3;
-            a[3] = 4;
-            a[4] = 5;
+            ConcreteCollection a = new ConcreteCollection();
+            a.AddItem(1);
+            a.AddItem(2);
+            a.AddItem(3);
+            a.AddItem(4);
+            a.AddItem(5);
 
-            Iterator i = a.CreateIterator();
 
-            while(i.Next())
+            foreach(var element in a)
             {
-                Console.WriteLine(i.CurrentItem());
+                Console.WriteLine(element);
             }
 
             Console.ReadKey();

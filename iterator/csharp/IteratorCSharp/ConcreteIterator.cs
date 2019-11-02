@@ -6,47 +6,42 @@ using System.Threading.Tasks;
 
 namespace IteratorCSharp
 {
-    abstract class Iterator
-    {
-        public abstract object First();
-        public abstract bool Next();
-        public abstract bool isDone();
-        public abstract object CurrentItem();
-    }
+    //Concrete Iterator implements traversal algorithm. Store traversal position
     class ConcreteIterator :Iterator
     {
-        private ConcreteArrayCollection _aggregate;
+        private ConcreteCollection _collection;
         private int _current = -1;
 
-        public ConcreteIterator(ConcreteArrayCollection aggregate)
+        public ConcreteIterator(ConcreteCollection collection)
         {
-            this._aggregate = aggregate;
+            this._collection = collection;
         }
 
-        public override object First()
+        public override object Current()
         {
-            return _aggregate[0];
+            return this._collection.getItems()[_current];
         }
 
-        public override bool Next()
+        public override int Key()
         {
-            _current++;
-            return _current <= _aggregate.Count;
+            return this._current;
         }
 
-        public override bool isDone()
+        public override bool MoveNext()
         {
-            return _current <= _aggregate.Count;
-        }
-
-        public override object CurrentItem()
-        {
-            object ret = null;
-            if (_current < _aggregate.Count)
+            if (++_current < _collection.getItems().Count)
             {
-                ret = _aggregate[_current];
+                return true;
             }
-            return ret;
+            else
+            {
+                return false;
+            }
+        }
+
+        public override void Reset()
+        {
+            _current = -1;
         }
     }
 }
