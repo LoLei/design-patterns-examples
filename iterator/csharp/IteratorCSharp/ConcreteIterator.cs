@@ -15,9 +15,9 @@ namespace CSharpIteratorDotNetCore
             this._collection = collection;
         }
 
-        public override object Current()
+        public override object CurrentItem()
         {
-                return this._collection.getItems()[_current];
+                return this._collection.GetItems()[_current];
         }
 
         public override int Key()
@@ -27,7 +27,7 @@ namespace CSharpIteratorDotNetCore
 
         public override bool MoveNext()
         {
-            if (++_current < _collection.getItems().Count)
+            if (++_current < _collection.GetItems().Count)
             {
                 return true;
             }

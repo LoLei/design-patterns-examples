@@ -7,9 +7,9 @@ namespace CSharpIteratorDotNetCore
 {
     abstract class Iterator : IEnumerator
     {
-        object IEnumerator.Current => Current();
+        object IEnumerator.Current => CurrentItem();
         public abstract int Key();
-        public abstract object Current();
+        public abstract object CurrentItem();
         public abstract bool MoveNext();
         public abstract void Reset();
     }

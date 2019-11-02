@@ -15,7 +15,7 @@ namespace CSharpIteratorDotNetCore
             return new ConcreteIterator(this);
         }
 
-        public ArrayList getItems()
+        public ArrayList GetItems()
         {
             return _collection;
         }
