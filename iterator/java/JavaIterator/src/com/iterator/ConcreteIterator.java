@@ -1,7 +1,6 @@
 package com.iterator;
 
 import java.util.ArrayList;
-import java.util.List;
 
 public class ConcreteIterator implements Iterator {
     private int current = 0;
@@ -27,8 +26,4 @@ public class ConcreteIterator implements Iterator {
         return object;
     }
 
-    @Override
-    public void reset() {
-        current = 0;
-    }
 }

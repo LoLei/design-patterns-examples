@@ -1,7 +1,6 @@
 package com.iterator;
 
 import java.util.ArrayList;
-import java.util.List;
 
 public class ConcreteCollection implements Collection {
     private ArrayList<Integer> listCollection;

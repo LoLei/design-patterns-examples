@@ -1,6 +1,5 @@
 package com.iterator;
-import com.iterator.ConcreteIterator;
-import com.iterator.ConcreteCollection;
+
 public class Main {
     public static void main(String[] args) {
         ConcreteCollection coll = new ConcreteCollection();
