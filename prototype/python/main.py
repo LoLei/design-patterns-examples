@@ -26,12 +26,20 @@ class ConcretePrototype1(Prototype):
         self.type_ = "t1"
         self.primitive_ = number
 
+    # def __init__prototype_clone__(self, source):
+        # super(source) # Needed if super class has private fields that apply to all
+        # child classes
+        # self.type_ = source.type_
+        # self.primitive_ = source.primitive_
+
     def clone(self):
         """
         This returns a new object with the members set to the primitives of the
         source object, done in the copy module. Otherwise one would have to
-        create an alternate prototype constructor, which copies all the fields
+        create an alternate prototype constructor, which copies all the fields,
+        similar to what's shown above
         """
+        # return new ConcretePrototype1(self)::__init_prototype_clone__
         return copy.copy(self)
 
 
