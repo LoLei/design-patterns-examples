@@ -3,7 +3,7 @@ Python already offers the cloning capability via the copy module, so you do
 not need to define the alternative prototype constructor for each class that
 implements the prototype
 """
-import copy
+import copy # Could use copy.deepcopy instead of copy.copy, which is shallow
 
 
 class Prototype:
