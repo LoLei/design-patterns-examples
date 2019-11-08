@@ -4,15 +4,15 @@ import java.util.ArrayList;
 
 public class ConcreteIterator implements Iterator {
     private int current = 0;
-    private ArrayList<Integer> list;
+    private ConcreteCollection collection;
 
-    public ConcreteIterator(ArrayList<Integer> IntList)
+    public ConcreteIterator(ConcreteCollection collection)
     {
-        this.list = IntList;
+       this.collection = collection;
     }
     @Override
     public boolean hasNext() {
-        return current < list.size();
+        return current < collection.getItems().size();
     }
 
     @Override
@@ -21,7 +21,7 @@ public class ConcreteIterator implements Iterator {
         {
             return null;
         }
-        Integer object = list.get(current);
+        Integer object = collection.getItems().get(current);
         current++;
         return object;
     }

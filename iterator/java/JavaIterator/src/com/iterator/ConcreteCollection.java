@@ -14,6 +14,10 @@ public class ConcreteCollection implements Collection {
     }
 
     public Iterator createIterator() {
-        return new ConcreteIterator(listCollection);
+        return new ConcreteIterator(this);
+    }
+    public ArrayList<Integer> getItems()
+    {
+        return listCollection;
     }
 }
