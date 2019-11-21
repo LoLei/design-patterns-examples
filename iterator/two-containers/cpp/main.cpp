@@ -10,9 +10,8 @@ int main()
   std::array<int, 3> container_1 = {10, 11, 12};
   std::array<int, 3> container_2 = {20, 21, 22};
 
-  // The most naive way, using a counter and index access (Ideally, one should
-  // also check before which container contains fewer elements, and stop there)
-  for (size_t i = 0; i < container_1.size(); ++i)
+  // The most naive way, using a counter and index access
+  for (size_t i = 0; i < container_1.size() && i < container_2.size(); ++i)
   {
     std::cout << container_1.at(i) << " " << container_2.at(i) << std::endl;
   }
