@@ -1,2 +1,1 @@
-noncopyable.o: noncopyable.cpp noncopyable.h
 main.o: main.cpp noncopyable.h

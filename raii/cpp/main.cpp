@@ -27,14 +27,32 @@ class Resource
   public:
     Resource() { std::cout << "Resource acquired" << std::endl; }
     ~Resource() { std::cout << "Resource destroyed" << std::endl; }
+    bool resourceMethod();
+};
+
+bool Resource::resourceMethod()
+{
+  std::mutex m;
+  ScopedLock scoped_lock(m);
+  bool sum_ting_wong = true;
+  if(sum_ting_wong)
+  {
+    // Would return without lock released, but since the scope is ended the
+    // scoped lock destuctor unlocks the lock.
+    return false;
+  }
+  // Maybe would have released lock only now
+  // m.unlock()
+  return true;
 };
 
 void doSomethingWithResource()
 {
   Resource *r = new Resource();
   AutoDeleter<Resource> auto_del(r);
-  // Do something
-  // ...
+  // Do something...
+  r->resourceMethod();
+
   // No need to call delete, destructor of AutoDeleter will delete the Resource
   // on the heap. AutoDeleter is on the stack, stack unwinding destroys
   // objects on the stack when their scope ends (In C++)
@@ -45,7 +63,6 @@ int main()
 {
   doSomethingWithResource();
 
-  // TODO: Show ScopedLock
   // TODO: Show unique_ptr and lock_guard as STL c++ idioms
   return 0;
 }
