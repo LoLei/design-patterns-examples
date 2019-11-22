@@ -1,5 +1,6 @@
 #include <iostream>
 #include <mutex>
+#include <memory>
 #include "noncopyable.h"
 
 template <class T>
@@ -41,12 +42,18 @@ bool Resource::resourceMethod()
     // scoped lock destuctor unlocks the lock.
     return false;
   }
+  // Also since this method is a member function it might also return early
+  // due to the object to which the method belongs being destroyed
+  
   // Maybe would have released lock only now
   // m.unlock()
   return true;
 };
 
-void doSomethingWithResource()
+/**
+ * Example showing own implementation of auto deletion and scoped lock
+ */
+void selfMadeExample()
 {
   Resource *r = new Resource();
   AutoDeleter<Resource> auto_del(r);
@@ -59,10 +66,27 @@ void doSomethingWithResource()
   return;
 }
 
+/**
+ * Example showing C++'s STL idioms of handling auto deletion and scoped locking
+ * std::unique_ptr, std::shared_ptr
+ * std::lock_guard
+ */
+void stlExample()
+{
+  // unique_ptr will delete the resource it is managing when it goes out of
+  // scope
+  std::unique_ptr<Resource> res(new Resource);
+
+  std::mutex m;
+  // lock_guard releases the mutex when it goes out of scope
+  std::lock_guard<std::mutex> lk(m);
+  return;
+}
+
 int main()
 {
-  doSomethingWithResource();
+  selfMadeExample();
+  stlExample();
 
-  // TODO: Show unique_ptr and lock_guard as STL c++ idioms
   return 0;
 }
