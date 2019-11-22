@@ -78,7 +78,9 @@ void stlExample()
   std::unique_ptr<Resource> res(new Resource);
 
   std::mutex m;
-  // lock_guard releases the mutex when it goes out of scope
+  // lock_guard releases the mutex when it goes out of scope, e.g. early returns
+  // due to exceptions, etc. 
+  // (The lock is also acquired on initialization, i.e. RAII)
   std::lock_guard<std::mutex> lk(m);
   return;
 }
