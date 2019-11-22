@@ -75,7 +75,7 @@ void stlExample()
 {
   // unique_ptr will delete the resource it is managing when it goes out of
   // scope
-  std::unique_ptr<Resource> res(new Resource);
+  std::unique_ptr<Resource> r(new Resource);
 
   std::mutex m;
   // lock_guard releases the mutex when it goes out of scope, e.g. early returns
