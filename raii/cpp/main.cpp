@@ -81,7 +81,7 @@ void stlExample()
   // lock_guard releases the mutex when it goes out of scope, e.g. early returns
   // due to exceptions, etc. 
   // (The lock is also acquired on initialization, i.e. RAII)
-  std::lock_guard<std::mutex> lk(m);
+  std::lock_guard<std::mutex> guarded_lock(m);
   return;
 }
 
