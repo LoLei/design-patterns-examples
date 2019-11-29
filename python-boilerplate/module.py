@@ -1,10 +1,7 @@
-print('[module.py    ] Begin execution')
-print('[module.py    ] __name__ is:', __name__)
-
-def main():
-    print('[module.py    ] Running main function')
+def fancy_module_function():
+    print('[module.py] Running fancy module function')
 
 if __name__ == '__main__':
-    main()
-
-print('[module.py    ] End execution')
+    import sys
+    if len(sys.argv) == 2 and sys.argv[1] == 'fancy':
+        fancy_module_function()
