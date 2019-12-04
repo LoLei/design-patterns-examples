@@ -1,0 +1,1 @@
+singleton.o: singleton.cpp
