@@ -35,17 +35,20 @@ class MySingleton {
         <li>Memory address not accessible</li>
     </ul>
     <pre>
-let one   = new MySingleton();
-let two   = new MySingleton();
-let three = new MySingleton();
+// Create instances (well, hopefully only one)
+let one   = new MySingleton('one');
+let two   = new MySingleton('two');
+let three = new MySingleton('three');
 
-one.id;
-two.id;
-three.id;
-
+// Display random number
 one.random_number;
 two.random_number;
 three.random_number;
+
+// Display ids
+one.id;
+two.id;
+three.id;
     </pre>
   </body>
 </html>
