@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <title>JS prototype</title>
+  </head>
+  <body>
+    <h1>JS prototype</h1>
+    <h2>Everything is an object</h2>
+    <pre>
+// Create object my_object
+let my_object = {};
+
+// Add some properties
+my_object.name = 'Shape';
+my_object.color = 'red';
+my_object.border_width = '2px';
+
+// Create a function
+let is_this_an_object = function() {
+    console.log('Am I an object?');
+};
+
+// Call the function
+is_this_an_object();
+
+// Add some properties, because why not
+is_this_an_object.color = 'red';
+
+// Call the function
+is_this_an_object();
+
+// Is the property still there
+is_this_an_object.color
+    </pre>
+
+    <h2>Traditional prototypes</h2>
+    <p>
+        Objects are dynamic collections of properties.<br />
+        Objects have a link to a prototype object.<br />
+        Accessing a property of an object:<br />
+        Property on the object,<br />
+        Property on the prototype of the object,<br />
+        Property on the prototype of the prototype,<br />
+        Property on the prototype of the prototype of the prototype,<br />
+        until:<br />
+        Property with a matching name is found or<br />
+        end of the prototype chain is reached.
+    </p>
+    <pre>
+// Create a function
+let my_function = function () {
+    this.name = 'Shape';
+    this.color = 'red';
+}
+
+// Create my_function_object from my_function
+let my_function_object = new my_function();
+
+// Display my_function and my_function_object
+my_function;
+my_function_object;
+
+// Add properties in my_function function's prototype
+// (Add to native prototype, do not do this in production code)
+my_function.prototype.color = 'green';
+my_function.prototype.favorite_food = 'Pizza';
+
+// Display properties
+my_function_object.color;
+my_function_object.favorite_food;
+    </pre>
+
+    <h2>Syntactical sugar</h2>
+    <p>
+      Previous method: "constructor": <br />
+      In JS, a function that is called with the "new" operator.
+    </p>
+
+    <p>
+      Object.create
+    </p>
+    <pre>
+// my_shape_object ---> Object.prototype ---> null
+let my_shape_object = {name: 'shape', color: 'red'};
+
+// my_new_shape_object ---> my_shape_object ---> Object.prototype ---> null
+let my_new_shape_object = Object.create(my_shape_object);
+
+// Change and add properties
+my_new_shape_object.name = 'square';
+my_new_shape_object.info_string = function() {
+  return "I am a " + this.name + ", my color is " + this.color + " and my side length is " + this.side_length;
+};
+
+// Call function
+my_new_shape_object.info_string();
+    </pre>
+
+    <p>
+      class keyword
+    </p>
+    <pre>
+// Define class
+class Shape {
+  constructor(name, color) {
+    this.name = name;
+    this.color = color;
+  }
+}
+
+// Prototype chain via extends
+class Square extends Shape {
+  constructor(name, color, side_length) {
+    super(name, color);
+    this.side_length = side_length;
+  }
+
+  get info_string() {
+    return "I am a " + this.name + ", my color is " + this.color + " and my side length is " + this.side_length;
+  }
+}
+
+// Create object
+let my_square = new Square('square', 'red', 42);
+
+// Call function
+my_square.info_string;
+    </pre>
+
+  </body>
+</html>
