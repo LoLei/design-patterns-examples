@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <title>JS singleton</title>
+  </head>
+  <body>
+    <h1>JS singleton</h1>
+    <h2>Singleton implementation</h2>
+    <ul>
+        <li>Many implementations possible</li>
+        <li>One example using ES6 classes and ES7 static fields</li>
+    </ul>
+    <pre>
+class MySingleton {
+
+    static instance = undefined;
+
+    constructor(id) {
+        if(MySingleton.instance) {
+            return MySingleton.instance;
+        }
+
+        this.id = id;
+        this.random_number = Math.random();
+        MySingleton.instance = this;
+    }
+}
+    </pre>
+    <h2>Singleton testing</h2>
+    <ul>
+        <li>Memory address not accessible</li>
+    </ul>
+    <pre>
+let one   = new MySingleton();
+let two   = new MySingleton();
+let three = new MySingleton();
+
+one.id;
+two.id;
+three.id;
+
+one.random_number;
+two.random_number;
+three.random_number;
+    </pre>
+  </body>
+</html>
