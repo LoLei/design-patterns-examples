@@ -1,1 +1,3 @@
-# dp-ws19
+# design-patterns-examples
+
+Design Patterns - Examples in Various Languages
