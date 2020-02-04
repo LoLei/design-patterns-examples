@@ -2,7 +2,7 @@
 
 Design Patterns - Examples in Various Languages
 
-## Feature Design Patterns and Languages
+## Featured Design Patterns and Languages
 ```
 ├── boilerplate
 │   └── python
